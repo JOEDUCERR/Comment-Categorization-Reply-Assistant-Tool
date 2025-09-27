@@ -3,6 +3,20 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import json
+import os
+
+# Ensure NLTK data is available
+nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
+if not os.path.exists(nltk_data_path):
+    os.makedirs(nltk_data_path)
+
+nltk.data.path.append(nltk_data_path)
+
+for pkg in ["stopwords", "wordnet"]:
+    try:
+        nltk.data.find(f"corpora/{pkg}")
+    except LookupError:
+        nltk.download(pkg, download_dir=nltk_data_path)
 
 stop_words = set(stopwords.words("english"))
 lemmatizer = WordNetLemmatizer()
