@@ -26,6 +26,8 @@ Categories Detected:
 
 ## Screenshot
 
+![](output_img/image.png)
+
 ---
 
 ## Dataset
